@@ -3,6 +3,7 @@ let carts = document.querySelectorAll('.add-cart');
 let products = [
     {
         
+        
     }
 ]
 
@@ -33,6 +34,30 @@ function cartNumbers(product){
         document.querySelector('.cart span').textContent =1;
     }
     
-    
+    setItems(product);
 }
+
+function setItems(products){
+    let cartItems = localStorage.getItem('productsInCart');
+    cartItems = JSON.parse(cartItems);
+    
+    if(cartItems != null){
+        
+        if(cartItems[products.tag] == undefined){
+            cartItems = {
+                ...cartItems,
+                [product.tag]:product
+            }
+        }
+        cartItems[products.tag].inCart +=1;
+    } else{
+        product.inCart = 1;
+        cartItems = {
+            [product.tag]: product
+        }
+    }
+
+    localStorage.setItem("productsInCart", JSON.stringify(cartItems));
+}
+
 onLoadCartNumbers();
