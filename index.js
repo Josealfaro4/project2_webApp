@@ -1,80 +1,80 @@
 
-let carts = document.querySelectorAll('.add-cart');
+// let carts = document.querySelectorAll('.add-cart');
 
-let products = [
-    {
+// let products = [
+//     {
         
         
-    }
-]
+//     }
+// ]
 
-for(let i=0; i< carts.length; i++){
-    carts[i].addEventListener('click', () => {
-        cartNumbers(products[i]);
-        totalCost(products[i]);
-    })
-}
+// for(let i=0; i< carts.length; i++){
+//     carts[i].addEventListener('click', () => {
+//         cartNumbers(products[i]);
+//         totalCost(products[i]);
+//     })
+// }
 
-function onLoadCartNumbers(){
-    let productNumbers = localStorage.getItem('cartNumbers');
+// function onLoadCartNumbers(){
+//     let productNumbers = localStorage.getItem('cartNumbers');
     
-    if(productNumbers){
-         document.querySelector('.cart span').textContent = productNumbers;
-    }
-}
+//     if(productNumbers){
+//          document.querySelector('.cart span').textContent = productNumbers;
+//     }
+// }
 
-function cartNumbers(product){
-    let productNumbers = localStorage.getItem('cartNumbers');
+// function cartNumbers(product){
+//     let productNumbers = localStorage.getItem('cartNumbers');
     
-    productNumbers = parseInt(productNumbers);
+//     productNumbers = parseInt(productNumbers);
     
-    if(productNumbers) {
-        localStorage.setItem('cartNumbers', productNumbers + 1);
-        document.querySelector('.cart span').textContent = productNumbers + 1;
-    }else{
-        localStorage.setItem('cartNumbers',1);
-        document.querySelector('.cart span').textContent =1;
-    }
+//     if(productNumbers) {
+//         localStorage.setItem('cartNumbers', productNumbers + 1);
+//         document.querySelector('.cart span').textContent = productNumbers + 1;
+//     }else{
+//         localStorage.setItem('cartNumbers',1);
+//         document.querySelector('.cart span').textContent =1;
+//     }
     
-    setItems(product);
-}
+//     setItems(product);
+// }
 
-function setItems(products){
-    let cartItems = localStorage.getItem('productsInCart');
-    cartItems = JSON.parse(cartItems);
+// function setItems(products){
+//     let cartItems = localStorage.getItem('productsInCart');
+//     cartItems = JSON.parse(cartItems);
     
-    if(cartItems != null){
+//     if(cartItems != null){
         
-        if(cartItems[products.tag] == undefined){
-            cartItems = {
-                ...cartItems,
-                [product.tag]:product
-            }
-        }
-        cartItems[products.tag].inCart +=1;
-    } else{
-        product.inCart = 1;
-        cartItems = {
-            [product.tag]: product
-        }
-    }
+//         if(cartItems[products.tag] == undefined){
+//             cartItems = {
+//                 ...cartItems,
+//                 [product.tag]:product
+//             }
+//         }
+//         cartItems[products.tag].inCart +=1;
+//     } else{
+//         product.inCart = 1;
+//         cartItems = {
+//             [product.tag]: product
+//         }
+//     }
 
-    localStorage.setItem("productsInCart", JSON.stringify(cartItems));
-}
+//     localStorage.setItem("productsInCart", JSON.stringify(cartItems));
+// }
 
-function totalCost(product){
-    let cartCost = localStorage.getItem('totalCost');
+// function totalCost(product){
+//     let cartCost = localStorage.getItem('totalCost');
     
-    if(cartCost != null){
-        cartCost = parseInt(cartCost);
-        localStorage.setItem("totalCost",cartCost + product.price);
-    }else{
-        localStorage.setItem("totalCost", product.price);
-    }
+//     if(cartCost != null){
+//         cartCost = parseInt(cartCost);
+//         localStorage.setItem("totalCost",cartCost + product.price);
+//     }else{
+//         localStorage.setItem("totalCost", product.price);
+//     }
     
-}
+// }
 
-onLoadCartNumbers();
+// onLoadCartNumbers();
 
 var express = require("express");
 var bodyParser = require("body-parser");
