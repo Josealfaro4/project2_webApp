@@ -128,6 +128,10 @@ app.get("/signIn", function(req, res) {
     res.render("signIn");
 });
 
+app.get("/editUser", function(req, res) {
+    res.render("editUser");
+});
+
 app.post("/signIn", async function(req, res) {
     let username = req.body.username;
     let password = req.body.password;
