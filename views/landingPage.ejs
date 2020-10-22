@@ -1,0 +1,36 @@
+<%- include('templates/header') -%>
+<div class="signContainer">
+  <nav class="navbar navbar-dark bg-dark justify-content-between">
+    <a class="navbar-brand" href="/">
+      <h2 id="name">TEMP</h2>
+    </a>
+    
+    <form action="/searchResults">
+      <input name="searchedItem" id="searchBar" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" required>
+      <button class='btn btn-outline-success my-2 my-sm-0' style="margin:5px;"><strong>Search</strong></button>
+    </form>
+  </nav>
+</div>
+
+<div class="container">
+    <form class="inventory">
+      <% items.forEach(function(i){ %>
+        <div class="img-thumbmail flex-item">
+          <img width="500px" height="500px" src ='<%=i.itemlink%>'>
+          <div id="information">
+            <h3><%=i.itemname%></h3>
+            <h5>Category: <%=i.category%></h5>
+            <h5>Stock: <%=i.stock%></h5>
+            <h5>Category: <%=i.category%></h5>
+            <h5>Price: <%=i.price%></h5>
+            <h5>Description: <%=i.desc%></h5>
+            <br>
+          </div>
+        </div>
+     <% }); %>
+    </form>
+</div>
+
+
+
+<%- include('templates/footer') -%>
