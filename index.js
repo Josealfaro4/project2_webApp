@@ -104,7 +104,7 @@ connection.connect(function(err) {
 });
 
 app.get("/", function(req, res) {
-    res.render("home");
+    res.render("landingPage");
 });
 
 app.get("/register", function(req, res) {
@@ -128,9 +128,23 @@ app.get("/signIn", function(req, res) {
     res.render("signIn");
 });
 
-app.get("/editUser", function(req, res) {
+app.get("/profile", function(req, res) {
     res.render("editUser");
 });
+
+app.get("/products", function(req, res) {
+    res.render("products");
+});
+
+app.get("/details", function(req, res) {
+    res.render("productDetailPage");
+});
+
+app.get("/cart", function(req, res) {
+    res.render("cart");
+});
+
+
 
 app.post("/signIn", async function(req, res) {
     let username = req.body.username;

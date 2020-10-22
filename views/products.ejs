@@ -7,15 +7,6 @@
                     <h2 id="name">Team A Store</h2>
                 </a>
                 
-                <!--<ul>-->
-                <!--    <li><a href="index.html">Home</a></li>-->
-                <!--    <li class = "cart">-->
-                <!--        <a href ="cart.html">-->
-                <!--            <ion-icon name ="basket"></ion-icon>Cart<span>0</span>-->
-                <!--        </a>-->
-                <!--    </li>-->
-                <!--</ul>-->
-                
                 <form class="form-inline" action="/searchResults">
                     <input name="searchedItem" id="searchBar" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" required>
                     <button class='btn btn-outline-success my-2 my-sm-0' style="margin:5px;"><strong>Search</strong></button>
@@ -34,19 +25,40 @@
                     
                     
                     <div class="productsContainer">
-                        <h2 id="productsTitle">Cart</h2>
+                        <h2 id="productsTitle">Our Products</h2>
                         
-                        <div id="cart">
-                            <p>Your cart is currently empty.</p>
+                        <div class="products">
+                            <figure>
+                                <img src="shirt.jpg" alt="Shirt Image"/>
+                                <a href="/details"><figcaption>Long Sleeve Shirt</figcaption></a>
+                            </figure> 
+                            
+                            <button id="btnAddToCart" style="margin:5px;" type="button" class="btn btn-info">Add to Cart</button>
                         </div>
                         
-                        <button id="btnCheckout" style="margin:5px;" type="button" class="btn btn-info">Checkout</button>
+                        <div class="products">
+                            <figure>
+                                <img src="menJeans.png" alt="Regular Jeans Image"/>
+                                <a href="/details"><figcaption>Regular Jeans</figcaption></a>
+                            </figure> 
+                            
+                            <button id="btnAddToCart" style="margin:5px;" type="button" class="btn btn-info">Add to Cart</button>
+                        </div>
+                        
+                        <div class="products">
+                            <figure>
+                                <img src="menRipped.png" alt="Ripped Jeans Image"/>
+                                <a href="/details"><figcaption>Ripped Jeans</figcaption></a>
+                            </figure> 
+                            
+                            <button id="btnAddToCart" style="margin:5px;" type="button" class="btn btn-info">Add to Cart</button>
+                        </div>
                         
                     </div>
+                    
+                    
                 </div>
             </div>
         </div>
-        
-        
 
 <%- include('templates/footer') -%>
