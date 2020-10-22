@@ -2,12 +2,16 @@
 <div class="signContainer">
   <nav class="navbar navbar-dark bg-dark justify-content-between">
     <a class="navbar-brand" href="/">
-      <h2 id="name">TEMP</h2>
+      <h2 id="name">Team A Store</h2>
     </a>
     
-    <form action="/searchResults">
+    <form class="form-inline" action="/searchResults">
       <input name="searchedItem" id="searchBar" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" required>
       <button class='btn btn-outline-success my-2 my-sm-0' style="margin:5px;"><strong>Search</strong></button>
+      <a href="/products"><button id="btnProducts" style="margin:5px;" type="button" class="btn btn-outline-info">Products</button></a>
+      <a href="/profile"><button id="btnProfile" style="margin:5px;" type="button" class="btn btn-outline-info">My Profile</button></a>
+      <a href="/cart"><button id="btnCart" style="margin:5px;" type="button" class="btn btn-outline-info"><ion-icon name ="basket"></ion-icon> Cart</button></a>
+      <a href="/signIn"><button id="btnSignOut" style="margin:5px;" type="button" class="btn btn-outline-info">Sign Out</button></a>
     </form>
   </nav>
 </div>
