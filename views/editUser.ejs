@@ -1,13 +1,19 @@
 <%- include('templates/header') -%>
+
         <div class="registerContainer">
             <nav class="navbar navbar-dark bg-dark justify-content-between">
+              
               <a class="navbar-brand" href="/">
                   <h2 id="name">Team A Store</h2>
               </a>
+              
               <form class="form-inline" action="/searchResults">
                 <input name="searchedItem" id="searchBar" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" required>
                 <button class='btn btn-outline-success my-2 my-sm-0' style="margin:5px;"><strong>Search</strong></button>
-                <a href="/signIn"><button id="btnSignIn" style="margin:5px;" type="button" class="btn btn-outline-info">Sign In</button></a>
+                <a href="/products"><button id="btnProducts" style="margin:5px;" type="button" class="btn btn-outline-info">Products</button></a>
+                <a href="/profile"><button id="btnProfile" style="margin:5px;" type="button" class="btn btn-outline-info">My Profile</button></a>
+                <a href="/cart"><button id="btnCart" style="margin:5px;" type="button" class="btn btn-outline-info"><ion-icon name ="basket"></ion-icon> Cart</button></a>
+                <a href="/signIn"><button id="btnSignOut" style="margin:5px;" type="button" class="btn btn-outline-info">Sign Out</button></a>
               </form>
                 
             </nav>
@@ -16,24 +22,20 @@
         <div class="background">
         <div class="containerLogin">
             <div class="w3-container w3-center w3-animate-zoom">
-         <form action="/register" method="POST">
+         <form action="/editUser" method="POST">
           <div class="registerForm container">
-            <h2 id="registerLabel">Register</h2>
+            <h2 id="editUserLabel">Edit User Info</h2>
             
             <label for="name"><b>Name</b></label>
-            <input class="roundedBorderInput" type="text" placeholder="Enter Full Name" name="name" required>
-        
-            <label for="username"><b>Username</b></label>
-            <input class="roundedBorderInput" type="text" placeholder="Enter Username" name="username" required>
+            <input class="roundedBorderInput" type="text" placeholder="Enter New Name" name="name">
         
             <label for="psw"><b>Password</b></label>
-            <input class="roundedBorderInput" type="password" placeholder="Enter Password" name="psw" required>
+            <input class="roundedBorderInput" type="password" placeholder="Enter New Password" name="psw">
         
             <label for="psw-repeat"><b>Repeat Password</b></label>
-            <input class="roundedBorderInput" type="password" placeholder="Repeat Password" name="psw-repeat" required>
+            <input class="roundedBorderInput" type="password" placeholder="Repeat Password" name="psw-repeat">
         
-            <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-            <button class="btn btn-primary" id="btn" type="submit">Register</button>
+            <a href="/"><button class="btn btn-primary" id="btn" type="submit">Apply Changes</button></a>
           </div>
         </form> 
         </div>

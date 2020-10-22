@@ -38,23 +38,6 @@ ALTER TABLE INVENTORY
 ALTER TABLE INVENTORY
   MODIFY `itemId` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
   
-DROP TABLE IF EXISTS INVENTORY;
-
-CREATE TABLE CART (
-  `cartId` mediumint(9) NOT NULL,
-  `itemId` mediumint(9) NOT NULL,
-  `quanitity` mediumint(9) NOT NULL,
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-ALTER TABLE CART
-  ADD PRIMARY KEY (`cartId`);
-
-ALTER TABLE CART
-  MODIFY `cartId` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
-  
-  
-  
-  
 INSERT INTO `items` (`itemId`, `seller`, `itemlink`, `itemname`, `category`, `stock`, `price`, `desc`) VALUES
 (1, 2, 'https://store.sabaton.net/wp-content/uploads/2015/11/wings-of-glory-tshirt-back-sabaton-T15003.png', 'shirt', 'shirts', 10, 15.99, 'Nice looking shirt made out of quality material.'),
 (2, 2, 'https://target.scene7.com/is/image/Target/GUEST_657addf4-97db-485e-b4b1-954ca50de598?wid=325&hei=325&qlt=80&fmt=webp', 'designed shirt', 'shirts', 10, 15.99, 'Nice shirt with a design on it.'),
