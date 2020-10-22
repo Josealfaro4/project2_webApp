@@ -14,20 +14,16 @@
 
 <div class="container">
     <form class="inventory">
-      <% items.forEach(function(i){ %>
         <div class="img-thumbmail flex-item">
-          <img width="500px" height="500px" src ='<%=i.itemlink%>'>
+          <img width="650px" height="550px" src ='<%=item.itemlink%>'>
           <div id="information">
-            <h3><%=i.itemname%></h3>
-            <h5>Description: <%=i.desc%></h5>
+            <h3><%=item.itemname%></h3>
+            <h5>Description: <%=item.desc%></h5>
             <br>
           </div>
         </div>
-     <% }); %>
     </form>
 </div>
-
-
 
 
 <%- include('templates/footer') -%>
