@@ -154,6 +154,32 @@ app.post("/register", function(req, res) {
     });
 });
 
+app.get('/cart', function(req, res) {
+    res.render('cart');
+});
+
+app.get('/addItem',function(req, res) {
+    let stmt = 'INSERT INTO INVENTORY (`itemId`, `seller`, `itemlink`, `itemname`, `category`, `stock`, `price`, `desc`) VALUES (?,?,?,?,?,?,?,?)';
+    let data = [req.body.itemId, req.body.seller.itemlink, req.body.itemname, req.body.category, req.body.stock, req.body.price, req.body.desc];
+    connection.query(stmt, data, function(error, result) {
+        if(error) throw error;
+        res.redirect('/addItem');
+    });
+});
+
+app.get('/addToCart',function(req, res) {
+    let stmt = 'INSERT INTO CART (`itemId`, `seller`, `itemlink`, `itemname`, `category`, `stock`, `price`, `desc`) VALUES (?,?,?,?,?,?,?,?)';
+    let data = [req.body.itemId, req.body.seller.itemlink, req.body.itemname, req.body.category, req.body.stock, req.body.price, req.body.desc];
+    connection.query(stmt, data, function(error, result) {
+        if(error) throw error;
+        res.redirect('/addToCart');
+    });
+});
+
+
+
+
+
 
 app.get("*", function(req, res) {
     res.render("error");

@@ -1,26 +1,25 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset = "UTF-8">
-        <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
-        <link rel ="stylesheet" href ="css/app.css">
-        <title> Shopping Cart</title>
-    </head>
-    <body>
-        <header>
-            <div></div>
-            <nav>
-                <h2>Shop Name</h2>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li class = "cart">
-                        <a href ="cart.html">
-                            <ion-icon name ="basket"></ion-icon>Cart<span>0</span>
-                        </a>
-                    </li>
-                </ul>
+<%- include('templates/header') -%>
+        <div class="cartContainer">
+            <nav class="navbar navbar-dark bg-dark justify-content-between">
+              <a class="navbar-brand" href="/">
+                  <h2 id="name">TEMP</h2>
+              </a>
+              <form action="/searchResults">
+                <input name="searchedItem" id="searchBar" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" required>
+                <button class='btn btn-outline-success my-2 my-sm-0' style="margin:5px;"><strong>Search</strong></button>
+              </form>
             </nav>
-        </header>
-        <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
-    </body>
-</html>
+        </div>
+        
+        <div class="background">
+        <div class="containerLogin">
+            <div class="w3-container w3-center w3-animate-zoom">
+         <form action="/addCart" method="POST">
+          <div class="addCart container">
+
+          </div>
+        </form> 
+        </div>
+        </div>
+        </div>
+<%- include('templates/footer') -%>
