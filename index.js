@@ -156,10 +156,15 @@ app.get("/details", function(req, res) {
     res.render("productDetailPage");
 });
 
-app.get("/cart", function(req, res) {
-    res.render("cart");
+  app.get('/cart', function(req, res) {
+    let stmt = 'select * from items natrual join CART where CART.id = ?';
+    let data = req.session.ID;
+    
+    connection.query(stmt,data, function(error, results) {
+        if(error) throw error;
+        res.render('/cart')
+    });
 });
-
 
 app.post("/", function(req, res){
     res.render("landingPage");
@@ -197,6 +202,30 @@ app.post("/register", function(req, res) {
         if (error) throw error;
         res.redirect("/signin");
     });
+});
+
+app.post('/addToCart', function(req, res) {
+    let item = req.body.itemId;
+    let stmt = 'INSERT into CART (itemId, quanitity) VALUES (?,?)';
+    let data = [item, 1];
+    
+    connection.query(stmt, data, function(error, result) {
+        if(error) throw error;
+        res.redirect("/products");
+    });
+    
+});
+
+app.post('/deleteFromCart', function(req, res) {
+    let item = req.body.itemId;
+    let stmt = 'DELETE from CART where cartId = ?';
+    let data = [item];
+    
+    connection.query(stmt, data, function(error, result) {
+        if(error) throw error;
+        res.redirect("/cart");
+    });
+    
 });
 
 app.post("/editUser", function(req, res) {
