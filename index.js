@@ -92,7 +92,7 @@ app.set("view engine", "ejs");
 
 var connection = mysql.createConnection({
     host: "localhost",
-    user: "Julio",
+    user: "root",
     password: "Julio",
     database: "project2_db"
 });
@@ -110,7 +110,6 @@ app.get("/", function(req, res) {
 app.get("/register", function(req, res) {
     res.render("register");
 });
-
 
 function checkUsernamePassword(username,password) {
     let stmt = "SELECT * from USERS where username=? and password=?";
@@ -140,11 +139,15 @@ app.get("/details", function(req, res) {
     res.render("productDetailPage");
 });
 
-app.get("/cart", function(req, res) {
-    res.render("cart");
+app.get('/cart', function(req, res) {
+    let stmt = 'select * from items natrual join CART where CART.id = ?';
+    let data = req.session.ID;
+    
+    connection.query(stmt,data, function(error, results) {
+        if(error) throw error;
+        res.render('/cart')
+    });
 });
-
-
 
 app.post("/signIn", async function(req, res) {
     let username = req.body.username;
@@ -171,7 +174,31 @@ app.post("/register", function(req, res) {
         res.redirect("/signin");
     });
 });
+ 
+app.post('/addToCart', function(req, res) {
+    let item = req.body.itemId;
+    let stmt = 'INSERT into CART (itemId, quanitity) VALUES (?,?)';
+    let data = [item, 1];
+    
+    connection.query(stmt, data, function(error, result) {
+        if(error) throw error;
+        res.redirect("/products");
+    });
+    
+});
 
+app.post('/deleteFromCart', function(req, res) {
+    let item = req.body.itemId;
+    let stmt = 'DELETE from CART where cartId = ?';
+    let data = [item];
+    
+    connection.query(stmt, data, function(error, result) {
+        if(error) throw error;
+        res.redirect("/cart");
+    });
+    
+});
+ 
 
 app.get("*", function(req, res) {
     res.render("error");
