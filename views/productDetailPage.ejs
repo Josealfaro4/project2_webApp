@@ -2,7 +2,7 @@
 <div class="signContainer">
   <nav class="navbar navbar-dark bg-dark justify-content-between">
     <a class="navbar-brand" href="/">
-      <h2 id="name">TEMP</h2>
+      <h2 id="name">Team A Store</h2>
     </a>
     
     <form action="/searchResults">
@@ -13,21 +13,15 @@
 </div>
 
 <div class="container">
-    <form class="inventory">
-      <% items.forEach(function(i){ %>
-        <div class="img-thumbmail flex-item">
-          <img width="500px" height="500px" src ='<%=i.itemlink%>'>
-          <div id="information">
-            <h3><%=i.itemname%></h3>
-            <h5>Description: <%=i.desc%></h5>
-            <br>
-          </div>
-        </div>
-     <% }); %>
-    </form>
+  <div class="img-thumbmail flex-item">
+    <img width="520px" height="530px" src ='<%=items.itemlink%>'>
+      <div id="information">
+        <h3><%=items.itemname%></h3>
+        <h5>Description: <%=items.desc%></h5>
+        <br>
+      </div>
+  </div>
 </div>
-
-
 
 
 <%- include('templates/footer') -%>

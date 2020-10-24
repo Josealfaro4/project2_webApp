@@ -87,13 +87,14 @@ var app = express();
 
 
 app.use(express.static("css"));
+app.use(express.static("img"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
 var connection = mysql.createConnection({
     host: "localhost",
-    user: "Julio",
-    password: "Julio",
+    user: "root",
+    password: "Jose",
     database: "project2_db"
 });
 
@@ -123,7 +124,6 @@ function checkUsernamePassword(username,password) {
     });
 }
 
-
 app.get("/signIn", function(req, res) {
     res.render("signIn");
 });
@@ -132,11 +132,27 @@ app.get("/profile", function(req, res) {
     res.render("editUser");
 });
 
+app.get("/editUser", function(req, res) {
+    res.render("editUser");
+});
+
 app.get("/products", function(req, res) {
-    res.render("products");
+    console.log("products");
+    let stmt = "SELECT * FROM INVENTORY";
+    connection.query(stmt, function(error, results){
+        if (error) throw error;
+        res.render("products", {items: results});
+    });
 });
 
 app.get("/details", function(req, res) {
+    let stmt = "SELECT * FROM INVENTORY where itemId=?";
+    let data = [req.query.option];
+    connection.query(stmt, data, function(error, results) {
+        if (error) throw error;
+        console.log(results);
+        res.render("productDetailPage", {items: results[0]});
+    })
     res.render("productDetailPage");
 });
 
@@ -145,6 +161,17 @@ app.get("/cart", function(req, res) {
 });
 
 
+app.post("/", function(req, res){
+    res.render("landingPage");
+});
+
+app.post("/details", function(req, res) {
+    res.render("productDetailPage");
+});
+
+app.post("/products", function(req, res) {
+    res.render("products");
+});
 
 app.post("/signIn", async function(req, res) {
     let username = req.body.username;
@@ -168,6 +195,20 @@ app.post("/register", function(req, res) {
     var data = [username, password];
     connection.query(stmt, data, function(error, result) {
         if (error) throw error;
+        res.redirect("/signin");
+    });
+});
+
+app.post("/editUser", function(req, res) {
+    let user = req.body.username;
+    let password = req.body.psw;
+    console.log(user);
+    console.log(password);
+    
+    var stmt = "UPDATE USERS SET username = ?, password = ? WHERE name = ?";
+    var data =[user, password];
+    connection.query(stmt, data, function(error, results) {
+        if(error) throw error;
         res.redirect("/signin");
     });
 });

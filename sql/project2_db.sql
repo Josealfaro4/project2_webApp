@@ -18,7 +18,7 @@ ALTER TABLE `USERS`
   
 ALTER TABLE USERS
     MODIFY `ID` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
-    
+
 DROP TABLE IF EXISTS INVENTORY;
 
 CREATE TABLE INVENTORY (
@@ -38,9 +38,10 @@ ALTER TABLE INVENTORY
 ALTER TABLE INVENTORY
   MODIFY `itemId` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
   
-INSERT INTO `items` (`itemId`, `seller`, `itemlink`, `itemname`, `category`, `stock`, `price`, `desc`) VALUES
+INSERT INTO `INVENTORY` (`itemId`, `seller`, `itemlink`, `itemname`, `category`, `stock`, `price`, `desc`) VALUES
 (1, 2, 'https://store.sabaton.net/wp-content/uploads/2015/11/wings-of-glory-tshirt-back-sabaton-T15003.png', 'shirt', 'shirts', 10, 15.99, 'Nice looking shirt made out of quality material.'),
 (2, 2, 'https://target.scene7.com/is/image/Target/GUEST_657addf4-97db-485e-b4b1-954ca50de598?wid=325&hei=325&qlt=80&fmt=webp', 'designed shirt', 'shirts', 10, 15.99, 'Nice shirt with a design on it.'),
 (3, 1, 'https://www.theoutnet.com/variants/images/4854206262892787/F/w1020_q80.jpg', 'sweeter', 'sweeters', 10, 20.99, "Nice blue sweeter made out of cotton."),
 (4, 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR-b1lGUm5SDosggEK1HGhkExTCzjuO_9qveQ&usqp=CAU', 'sweeter', 'sweeters', 10, 25.99, 'Nice looking sweeter.'),
 (5, 3, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRzRuV5lGCi0QT5-O-PCEGt8GcGrwUpukDNrA&usqp=CAU', 'pants', 'pants', 10, 12.99, 'Black pansts, made for comfort.');
+
