@@ -236,5 +236,28 @@ nav {
   margin: 0 auto;
 }
 
-  
+.landing h1 {
+    margin: 0;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) 
+} 
+
+.landing img {
+    margin: 0;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) 
+}
+
+.productsContainer {
+  text-align:center;
+  margin:auto;
+}
+
+
 

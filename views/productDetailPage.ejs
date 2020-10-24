@@ -2,7 +2,7 @@
 <div class="signContainer">
   <nav class="navbar navbar-dark bg-dark justify-content-between">
     <a class="navbar-brand" href="/">
-      <h2 id="name">TEMP</h2>
+      <h2 id="name">Team A Store</h2>
     </a>
     
     <form action="/searchResults">
@@ -13,16 +13,14 @@
 </div>
 
 <div class="container">
-    <form class="inventory">
-        <div class="img-thumbmail flex-item">
-          <img width="650px" height="550px" src ='<%=item.itemlink%>'>
-          <div id="information">
-            <h3><%=item.itemname%></h3>
-            <h5>Description: <%=item.desc%></h5>
-            <br>
-          </div>
-        </div>
-    </form>
+  <div class="img-thumbmail flex-item">
+    <img width="520px" height="530px" src ='<%=items.itemlink%>'>
+      <div id="information">
+        <h3><%=items.itemname%></h3>
+        <h5>Description: <%=items.desc%></h5>
+        <br>
+      </div>
+  </div>
 </div>
 
 

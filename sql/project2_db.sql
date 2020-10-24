@@ -18,7 +18,7 @@ ALTER TABLE `USERS`
   
 ALTER TABLE USERS
     MODIFY `ID` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
-    
+
 DROP TABLE IF EXISTS INVENTORY;
 
 CREATE TABLE INVENTORY (
@@ -44,3 +44,4 @@ INSERT INTO `INVENTORY` (`itemId`, `seller`, `itemlink`, `itemname`, `category`,
 (3, 1, 'https://www.theoutnet.com/variants/images/4854206262892787/F/w1020_q80.jpg', 'sweeter', 'sweeters', 10, 20.99, "Nice blue sweeter made out of cotton."),
 (4, 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR-b1lGUm5SDosggEK1HGhkExTCzjuO_9qveQ&usqp=CAU', 'sweeter', 'sweeters', 10, 25.99, 'Nice looking sweeter.'),
 (5, 3, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRzRuV5lGCi0QT5-O-PCEGt8GcGrwUpukDNrA&usqp=CAU', 'pants', 'pants', 10, 12.99, 'Black pansts, made for comfort.');
+

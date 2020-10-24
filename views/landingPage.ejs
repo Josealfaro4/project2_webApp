@@ -16,22 +16,12 @@
   </nav>
 </div>
 
-<div class="container">
-    <% items.forEach(function(i){ %>
-      <form class="inventory" method="GET" action="/productDetailPage">
-        <div class="img-thumbmail flex-item">
-          <img width="500px" height="530px" src ='<%=i.itemlink%>'>
-          <div id="information">
-            <h3><%=i.itemname%></h3>
-            <h5>Category: <%=i.category%></h5>
-            <h5>Stock: <%=i.stock%></h5>
-            <h5>Price: <%=i.price%></h5>
-            <button class="btn btn-secondary btn-sm" type="button">Product Detail</button>
-            <br>
-          </div>
-        </div>
-     <% }); %>
-    </form>
+<body>
+<div class="landing">
+    <h1>Welcome to Our Store!</h1>
+    <img src="sign.png" width="450" height="350"/>
+
 </div>
+</body>
 
 <%- include('templates/footer') -%>

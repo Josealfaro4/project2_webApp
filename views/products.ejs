@@ -29,13 +29,31 @@
                         
                         <div class="products">
                             <figure>
-                                <img src="shirt.jpg" alt="Shirt Image"/>
-                                <a href="/details"><figcaption>Long Sleeve Shirt</figcaption></a>
+                                <div class="container1">
+                                    <% items.forEach(function(i){ %>
+                                      <form class="inventory" method="GET" action="/productDetailPage">
+                                        <input type="hidden" name="option" value=<%=i.itemId %> >
+                                          <img width="200" height="220px" src ='<%=i.itemlink%>'>
+                                          <div id="information">
+                                            <h3><%=i.itemname%></h3>
+                                            <h5>Category: <%=i.category%></h5>
+                                            <h5>Stock: <%=i.stock%></h5>
+                                            <h5>Price: <%=i.price%></h5>
+                                            <button class="btn btn-secondary btn-sm" type="submit">Product Detail</button>
+                                            <button id="btnAddToCart" style="margin:5px;" type="submit" class="btn btn-info">Add to Cart</button>
+                                            <br>
+                                          </div>
+                                     <% }); %>
+                                    </form>
+                                </div>
                             </figure> 
                             
-                            <button id="btnAddToCart" style="margin:5px;" type="button" class="btn btn-info">Add to Cart</button>
                         </div>
                         
+                        
+                 <!--       
+                        
+                       
                         <div class="products">
                             <figure>
                                 <img src="menJeans.png" alt="Regular Jeans Image"/>
@@ -44,6 +62,11 @@
                             
                             <button id="btnAddToCart" style="margin:5px;" type="button" class="btn btn-info">Add to Cart</button>
                         </div>
+                        
+                        
+                        
+                        
+                        
                         
                         <div class="products">
                             <figure>
@@ -54,6 +77,7 @@
                             <button id="btnAddToCart" style="margin:5px;" type="button" class="btn btn-info">Add to Cart</button>
                         </div>
                         
+                        -->
                     </div>
                     
                     
