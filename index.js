@@ -128,16 +128,12 @@ app.get("/signIn", function(req, res) {
     res.render("signIn");
 });
 
-app.get("/profile", function(req, res) {
-    res.render("editUser");
-});
-
 app.get("/editUser", function(req, res) {
     res.render("editUser");
 });
 
+
 app.get("/products", function(req, res) {
-    console.log("products");
     let stmt = "SELECT * FROM INVENTORY";
     connection.query(stmt, function(error, results){
         if (error) throw error;
@@ -145,32 +141,31 @@ app.get("/products", function(req, res) {
     });
 });
 
-app.get("/details", function(req, res) {
+app.get("/productDetailPage", function(req, res) {
     let stmt = "SELECT * FROM INVENTORY where itemId=?";
     let data = [req.query.option];
-    connection.query(stmt, data, function(error, results) {
+    connection.query(stmt, data, function(error, result) {
         if (error) throw error;
-        console.log(results);
-        res.render("productDetailPage", {items: results[0]});
-    })
-    res.render("productDetailPage");
+        console.log(result);
+        res.render("productDetailPage", {items: result[0]});
+    });
 });
 
-  app.get('/cart', function(req, res) {
-    let stmt = 'select * from items natrual join CART where CART.id = ?';
-    let data = req.session.ID;
-    
-    connection.query(stmt,data, function(error, results) {
-        if(error) throw error;
-        res.render('/cart')
-    });
+
+app.get("/cart", function(req, res) {
+   // let stmt = 'select * from items natural join CART where CART.id = ?';
+  //  let data = [req.query.cartOption];
+  //  connection.query(stmt,data, function(error, result) {
+  //      if(error) throw error;
+        res.render("cart");
+  //  });
 });
 
 app.post("/", function(req, res){
     res.render("landingPage");
 });
 
-app.post("/details", function(req, res) {
+app.post("/productDetailPage", function(req, res) {
     res.render("productDetailPage");
 });
 
@@ -204,16 +199,15 @@ app.post("/register", function(req, res) {
     });
 });
 
-app.post('/addToCart', function(req, res) {
+app.post("/cart", function(req, res) {
     let item = req.body.itemId;
-    let stmt = 'INSERT into CART (itemId, quanitity) VALUES (?,?)';
+    let stmt = "INSERT into CART (itemId, quanitity) VALUES (?,?)";
     let data = [item, 1];
     
     connection.query(stmt, data, function(error, result) {
         if(error) throw error;
         res.redirect("/products");
     });
-    
 });
 
 app.post('/deleteFromCart', function(req, res) {
