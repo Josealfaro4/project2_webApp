@@ -11,7 +11,7 @@
                     <input name="searchedItem" id="searchBar" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" required>
                     <button class='btn btn-outline-success my-2 my-sm-0' style="margin:5px;"><strong>Search</strong></button>
                     <a href="/products"><button id="btnProducts" style="margin:5px;" type="button" class="btn btn-outline-info">Products</button></a>
-                    <a href="/profile"><button id="btnProfile" style="margin:5px;" type="button" class="btn btn-outline-info">My Profile</button></a>
+                    <a href="/editUser"><button id="btnProfile" style="margin:5px;" type="button" class="btn btn-outline-info">My Profile</button></a>
                     <a href="/cart"><button id="btnCart" style="margin:5px;" type="button" class="btn btn-outline-info"><ion-icon name ="basket"></ion-icon> Cart</button></a>
                     <a href="/signIn"><button id="btnSignOut" style="margin:5px;" type="button" class="btn btn-outline-info">Sign Out</button></a>
                 </form>
@@ -36,11 +36,11 @@
                                           <img width="200" height="220px" src ='<%=i.itemlink%>'>
                                           <div id="information">
                                             <h3><%=i.itemname%></h3>
-                                            <h5>Category: <%=i.category%></h5>
-                                            <h5>Stock: <%=i.stock%></h5>
                                             <h5>Price: <%=i.price%></h5>
                                             <button class="btn btn-secondary btn-sm" type="submit">Product Detail</button>
-                                            <button id="btnAddToCart" style="margin:5px;" type="submit" class="btn btn-info">Add to Cart</button>
+                                            <form class="cart" method="GET" action="/cart">
+                                            <button id="btnAddToCart" type="submit" ></button>
+                                            </form>
                                             <br>
                                           </div>
                                      <% }); %>

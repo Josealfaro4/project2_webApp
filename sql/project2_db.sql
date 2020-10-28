@@ -43,7 +43,7 @@ DROP TABLE IF EXISTS CART;
 CREATE TABLE CART (
   `cartId` mediumint(9) NOT NULL,
   `itemId` mediumint(9) NOT NULL,
-  `quanitity` mediumint(9) NOT NULL,
+  `quanitity` mediumint(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 ALTER TABLE CART

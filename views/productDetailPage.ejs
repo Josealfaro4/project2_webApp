@@ -5,23 +5,32 @@
       <h2 id="name">Team A Store</h2>
     </a>
     
-    <form action="/searchResults">
+    <form class="form-inline" action="/searchResults">
       <input name="searchedItem" id="searchBar" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" required>
       <button class='btn btn-outline-success my-2 my-sm-0' style="margin:5px;"><strong>Search</strong></button>
+      <a href="/products"><button id="btnProducts" style="margin:5px;" type="button" class="btn btn-outline-info">Products</button></a>
+      <a href="/editUser"><button id="btnProfile" style="margin:5px;" type="button" class="btn btn-outline-info">My Profile</button></a>
+      <a href="/cart"><button id="btnCart" style="margin:5px;" type="button" class="btn btn-outline-info"><ion-icon name ="basket"></ion-icon> Cart</button></a>
+      <a href="/signIn"><button id="btnSignOut" style="margin:5px;" type="button" class="btn btn-outline-info">Sign Out</button></a>
     </form>
   </nav>
 </div>
 
-<div class="container">
-  <div class="img-thumbmail flex-item">
-    <img width="520px" height="530px" src ='<%=items.itemlink%>'>
-      <div id="information">
-        <h3><%=items.itemname%></h3>
-        <h5>Description: <%=items.desc%></h5>
-        <br>
-      </div>
+
+  <div class="containerDetails">
+    <form class="inventory" method="POST" action="/cart">
+      <input type="hidden" name="cartOption" value=<%=items.itemId %> >
+        <img width="400px" height="400px" src ='<%=items.itemlink%>'>
+          <div class="informationDeets">
+            <h3><%=items.itemname%></h3>
+            <h5>Category: <%=items.category%></h5>
+            <h5>Stock: <%=items.stock%></h5>
+            <h5>Description: <%=items.desc%></h5>
+            <button class="btn btn-secondary btn-sm" type="submit">Add to Cart</button>
+            <br>
+          </div>
+    </form>
   </div>
-</div>
 
 
 <%- include('templates/footer') -%>
